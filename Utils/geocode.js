@@ -1,10 +1,11 @@
+require('dotenv').config()
 const request = require("request");
 
 const geocoding = (address, callback) => {
   const url =
-    "https://api.maptiler.com/geocoding/" +
+    `https://api.maptiler.com/geocoding/` +
     address +
-    ".json?key=xNSP0UFoPXZmixlUZn4q&limit=2";
+    `.json?key=${process.env.Key_geocode}&limit=2`;
 
   request({ url: url, json: true }, (error, response) => {
     if (error) {
